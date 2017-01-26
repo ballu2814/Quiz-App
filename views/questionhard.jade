@@ -1,0 +1,244 @@
+extends layout
+block content
+  style.
+    body {
+      background:#ff9999;
+      }
+    .answers li {
+    list-style: upper-alpha;
+    }
+    label {
+    margin-left: 0.5em;
+    cursor: pointer;
+    }
+    #txt1{
+    background-color:yellow;
+    float:right;
+    margin: 10px 10px 10px 10px;
+    padding:10px;
+    }
+    #link{
+      display: none;
+    }
+    #results {
+    background: #dddada;
+    color: 000000;
+    padding: 3px;
+    text-align: center;
+    width: 200px;
+    cursor: pointer;
+    border: 1px solid gray;
+    }
+    #results:hover {
+    background: #3d91b8;
+    color: #ffffff;
+    padding: 3px;
+    text-align: center;
+    width: 200px;
+    cursor: pointer;
+    border: 1px solid gray;
+    }
+    #categorylist {
+    margin-top: 6px;
+    display: none;
+    }
+    #category1, #category2, #category3, #category4, #category5, #category6, #category7, #category8, #category9, #category10, #category11 {
+    display: none;
+    }
+    #closing {
+    display: none;
+    font-style: italic;
+    }
+  script.
+    var x=0;
+    var y=0;
+    function startTime(){
+      if(y>=10){
+        document.getElementById('txt').innerHTML ="0"+x + ":" + y;
+      }
+      else{
+        if(y<10){
+          document.getElementById('txt').innerHTML ="0"+x + ":" + "0"+y;
+        }
+      }
+     y=y+1;
+     if(y==60){
+      x=x+1;
+      y=0;
+     }
+    setTimeout(startTime,1000);
+    }
+    setTimeout(gradetest, 600000);
+    function gradetest() { 
+    points=0;
+    var total=10;
+    for( i=1;i<=10;i++){
+    var a = document.getElementsByName('q'+i);
+    for(j=0;j<4;j++){
+    if(a[j].checked && a[j].value=='tru'){
+      console.log(a[j]);
+      points=points+10;
+    }
+    }
+    }
+    var classes=document.getElementsByClassName("answers");
+    var classes1=document.getElementsByClassName("question");
+    for(k=0;k<10;k++){  
+    classes[k].style.display='none';
+    classes1[k].style.display='none';
+    }
+    var str='You got '+points+' points';
+    document.getElementById("hide").innerHTML =str;
+    document.getElementById("link").style.display ='block';
+    document.getElementById('txt1').style.display='none';
+    }
+  body(onload='startTime(0,0)')
+    p c
+    p x
+    #txt1
+     h1#txt
+    p.question 1. What is the answer to this question?
+    ul.answers
+      input#q1a(type='radio', name='q1', value='a')
+      label(for='q1a') Answer 1
+      br
+      input#q1b(type='radio', name='q1', value='tru')
+      label(for='q1b') Answer 2
+      br
+      input#q1c(type='radio', name='q1', value='c')
+      label(for='q1c') Answer 3
+      br
+      input#q1d(type='radio', name='q1', value='d')
+      label(for='q1d') Answer 4
+      br
+    p.question 2. What is the answer to this question?
+    ul.answers
+      input#q2a(type='radio', name='q2', value='a')
+      label(for='q2a') Answer 1
+      br
+      input#q2b(type='radio', name='q2', value='b')
+      label(for='q2b') Answer 2
+      br
+      input#q2c(type='radio', name='q2', value='tru')
+      label(for='q2c') Answer 3
+      br
+      input#q2d(type='radio', name='q2', value='d')
+      label(for='q2d') Answer 4
+      br
+    p.question 3. What is the answer to this question?
+    ul.answers
+      input#q3a(type='radio', name='q3', value='a')
+      label(for='q3a') Answer 1
+      br
+      input#q3b(type='radio', name='q3', value='b')
+      label(for='q3b') Answer 2
+      br
+      input#q3c(type='radio', name='q3', value='c')
+      label(for='q3c') Answer 3
+      br
+      input#q3d(type='radio', name='q3', value='tru')
+      label(for='q3d') Answer 4
+      br
+    p.question 4. What is the answer to this question?
+    ul.answers
+      input#q4a(type='radio', name='q4', value='a')
+      label(for='q4a') Answer 1
+      br
+      input#q4b(type='radio', name='q4', value='tru')
+      label(for='q4b') Answer 2
+      br
+      input#q4c(type='radio', name='q4', value='c')
+      label(for='q4c') Answer 3
+      br
+      input#q4d(type='radio', name='q4', value='d')
+      label(for='q4d') Answer 4
+      br
+    p.question 5. What is the answer to this question?
+    ul.answers
+      input#q5a(type='radio', name='q5', value='tru')
+      label(for='q5a') Answer 1
+      br
+      input#q5b(type='radio', name='q5', value='b')
+      label(for='q5b') Answer 2
+      br
+      input#q5c(type='radio', name='q5', value='c')
+      label(for='q5c') Answer 3
+      br
+      input#q5d(type='radio', name='q5', value='d')
+      label(for='q5d') Answer 4
+      br
+    p.question 6. What is the answer to this question?
+    ul.answers
+      input#q6a(type='radio', name='q6', value='a')
+      label(for='q6a') Answer 1
+      br
+      input#q6b(type='radio', name='q6', value='tru')
+      label(for='q6b') Answer 2
+      br
+      input#q6c(type='radio', name='q6', value='c')
+      label(for='q6c') Answer 3
+      br
+      input#q6d(type='radio', name='q6', value='d')
+      label(for='q6d') Answer 4
+      br
+    p.question 7. What is the answer to this question?
+    ul.answers
+      input#q7a(type='radio', name='q7', value='a')
+      label(for='q7a') Answer 1
+      br
+      input#q7b(type='radio', name='q7', value='b')
+      label(for='q7b') Answer 2
+      br
+      input#q7c(type='radio', name='q7', value='tru')
+      label(for='q7c') Answer 3
+      br
+      input#q7d(type='radio', name='q7', value='d')
+      label(for='q7d') Answer 4
+      br
+    p.question 8. What is the answer to this question?
+    ul.answers
+      input#q8a(type='radio', name='q8', value='a')
+      label(for='q8a') Answer 1
+      br
+      input#q8b(type='radio', name='q8', value='b')
+      label(for='q8b') Answer 2
+      br
+      input#q8c(type='radio', name='q8', value='c')
+      label(for='q8c') Answer 3
+      br
+      input#q8d(type='radio', name='q8', value='tru')
+      label(for='q8d') Answer 4
+      br
+    p.question 9. What is the answer to this question?
+    ul.answers
+      input#q9a(type='radio', name='q9', value='tru')
+      label(for='q9a') Answer 1
+      br
+      input#q9b(type='radio', name='q9', value='b')
+      label(for='q9b') Answer 2
+      br
+      input#q9c(type='radio', name='q9', value='c')
+      label(for='q9c') Answer 3
+      br
+      input#q9d(type='radio', name='q9', value='d')
+      label(for='q9d') Answer 4
+      br
+    p.question 10. What is the answer to this question?
+    ul.answers
+      input#q10a(type='radio', name='q10', value='a')
+      label(for='q10a') Answer 1
+      br
+      input#q10b(type='radio', name='q10', value='b')
+      label(for='q10b') Answer 2
+      br
+      input#q10c(type='radio', name='q10', value='c')
+      label(for='q10c') Answer 3
+      br
+      input#q10d(type='radio', name='q10', value='tru')
+      label(for='q10d') Answer 4
+      br
+    br
+    button(onclick='gradetest()') Grade me
+    h3#hide
+    a(href='http://localhost:500/users/quiz') 
+         h1#link Click here to go to QUIZ PAGE

@@ -1,0 +1,31 @@
+extends layout
+block content 
+  style.
+      #linking {
+      background: #ff9999;
+      padding: 20px;
+      }
+      #linking li {
+      background: #ffe5e5;
+      padding: 5px;
+      margin-left: 35px;
+      }
+      body {
+      background:#ffe5e5;
+      }
+  body
+    p fd
+    p hd
+    h1 Hello #{name} Please Select Difficulty Level:
+    ol#linking
+      li
+        a(href='http://localhost:500/users/quiz/simple') 
+         h1 Simple
+      li
+        a(href='http://localhost:500/users/quiz/medium') 
+         h1 Medium
+      li
+        a(href='http://localhost:500/users/quiz/hard') 
+         h1 Hard
+     h1 You Will Get 10 Minutes to Complete The Quiz
+    p Timer will be automatically start after choosing category    
